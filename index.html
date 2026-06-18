@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="京城市鐵官方網站：運行資訊、票價查詢、路線與車站資訊。">
+  <title>京城市鐵｜邁進新里程</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/cur-favicon.png">
+  <link rel="apple-touch-icon" href="assets/images/cur-favicon.png">
+  <meta name="theme-color" content="#2C718F">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">跳到主要內容</a>
+
+  <header class="site-header">
+    <div class="utility-bar">
+      <div class="container utility-inner">
+        <div class="operator-note">
+          <span class="operator-mark">國鐵集團</span>
+          <span>南殷鐵道集團旗下城市交通事業</span>
+        </div>
+        <nav class="utility-links" aria-label="企業資訊">
+          <a href="#public-policy">資訊公開</a>
+          <a href="projects/index.html">建設計畫</a>
+          <a href="#procurement">採購公告</a>
+          <a href="#recruit">人才招募</a>
+          <a href="#contact">聯絡我們</a>
+        </nav>
+      </div>
+    </div>
+
+    <div class="brand-row">
+      <div class="container brand-inner">
+        <a href="index.html" class="brand" aria-label="京城市鐵首頁">
+      <img
+        class="brand-logo"
+        src="assets/images/keijo-city-rail-logo.png"
+        alt="京城市鐵 Capital City Rail"
+        width="831"
+        height="207">
+</a>
+
+        <div class="brand-actions">
+          <div class="corporate-slogan">
+            <span>邁進新里程</span>
+            <small>安全、準時、連結城市未來</small>
+          </div>
+          <button class="subtle-button" type="button" id="fontSizeBtn" aria-label="切換較大字體">文字放大</button>
+          <button class="subtle-button" type="button" id="languageBtn" aria-label="語言選擇">繁中 / EN</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-nav-wrap">
+      <div class="container nav-inner">
+        <button class="menu-toggle" type="button" id="menuToggle" aria-expanded="false" aria-controls="mainNav">
+          <span></span><span></span><span></span>
+          <b>選單</b>
+        </button>
+        <nav class="main-nav" id="mainNav" aria-label="主要導覽">
+          <a class="nav-status" href="service/index.html#operation-guide">
+            <span class="nav-icon">●</span>
+            運行資訊
+          </a>
+          <a href="route/index.html">路線・車站</a>
+          <a href="fare/index.html">車票・套票</a>
+          <a href="service/index.html">乘車服務</a>
+          <a href="projects/index.html">建設計畫</a>
+          <a href="company/index.html">企業・永續</a>
+        </nav>
+        <button class="site-search-button" type="button" id="siteSearchButton">
+          <span aria-hidden="true">⌕</span>
+          網站內搜尋
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="operation-strip" id="operation-status" aria-labelledby="operation-title">
+      <div class="container operation-inner">
+        <div class="operation-heading">
+          <span class="status-beacon" aria-hidden="true"></span>
+          <div>
+            <small id="statusUpdated">運行資訊更新中</small>
+            <strong id="operation-title">全線運行狀況</strong>
+          </div>
+        </div>
+        <div class="operation-summary" id="operationSummary">
+          <strong>全線大致正常運行</strong>
+          <span>目前沒有超過5分鐘以上的延誤。</span>
+        </div>
+        <button class="operation-detail-button" type="button" id="statusDetailsBtn">
+          查看各線狀況
+          <span aria-hidden="true">›</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="hero-section">
+      <div class="container hero-grid">
+        <section class="service-console" id="passenger-service" aria-labelledby="service-console-title">
+          <div class="section-kicker">PASSENGER SERVICE</div>
+          <h1 id="service-console-title">乘車資訊快速查詢</h1>
+
+          <form class="station-search-form" id="stationSearchForm">
+            <label for="stationSearchInput">搜尋車站名稱或車站編號</label>
+            <div class="search-field">
+              <input id="stationSearchInput" name="station" type="search" list="stationList" placeholder="請輸入車站名稱">
+              <button type="submit" aria-label="搜尋車站">搜尋</button>
+            </div>
+            <datalist id="stationList"></datalist>
+          </form>
+
+          <div class="quick-service-grid">
+            <a class="quick-service-card" href="route/map.html">
+              <span class="service-icon" aria-hidden="true">⌘</span>
+              <strong>路線圖</strong>
+              <small>查看南順地鐵系統</small>
+            </a>
+            <a class="quick-service-card" href="fare/index.html">
+              <span class="service-icon" aria-hidden="true">¥</span>
+              <strong>票價查詢</strong>
+              <small>快速試算車資</small>
+            </a>
+            <a class="quick-service-card" href="route/index.html#station-guide">
+              <span class="service-icon" aria-hidden="true">出</span>
+              <strong>車站資訊</strong>
+              <small>出口與設施</small>
+            </a>
+            <a class="quick-service-card" href="service/index.html">
+              <span class="service-icon" aria-hidden="true">♿</span>
+              <strong>無障礙服務</strong>
+              <small>安心乘車指引</small>
+            </a>
+          </div>
+        </section>
+
+        <section class="hero-banner" id="heroCarousel" aria-label="重點宣傳輪播" aria-roledescription="輪播">
+          <article class="hero-slide hero-slide-service is-active" data-hero-slide aria-label="第 1 項，共 3 項">
+            <div class="hero-label">SERVICE UPDATE</div>
+            <div class="hero-copy">
+              <p>自 7 月 1 日起</p>
+              <h2>日間服務提升</h2>
+              <p class="hero-lead">天從崗幹線班次優化，打造更頻密、更均衡的非繁忙時段服務。</p>
+              <a href="news/20260617-01.html" class="hero-cta">了解調整內容 <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="rail-line rail-line-one"></div>
+              <div class="rail-line rail-line-two"></div>
+              <div class="train-front">
+                <span class="train-window"></span>
+                <span class="train-window"></span>
+                <span class="train-destination">天從崗</span>
+              </div>
+              <div class="city-silhouette"></div>
+            </div>
+          </article>
+
+          <article class="hero-slide hero-slide-metrogo" data-hero-slide aria-label="第 2 項，共 3 項" hidden>
+            <div class="hero-label">METROGO APP</div>
+            <div class="hero-copy">
+              <p>鐵路出行，一手掌握</p>
+              <h2>MetroGO</h2>
+              <p class="hero-lead">整合京城市鐵與都營南順地鐵的乘車資訊，讓每日出行更從容。</p>
+              <a href="service/index.html" class="hero-cta">了解 MetroGO <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="metrogo-art" aria-hidden="true">
+              <div class="metrogo-phone">
+                <span class="metrogo-camera"></span>
+                <div class="metrogo-screen-logo">M</div>
+                <strong>MetroGO</strong>
+                <span>城市鐵路出行服務</span>
+                <i></i><i></i><i></i>
+              </div>
+            </div>
+          </article>
+
+          <article class="hero-slide hero-slide-corporate" data-hero-slide aria-label="第 3 項，共 3 項" hidden>
+            <div class="hero-label">CAPITAL URBAN RAIL</div>
+            <div class="hero-copy">
+              <p>連結城市，服務日常</p>
+              <h2>邁進新里程</h2>
+              <p class="hero-lead">以可靠的運輸服務，陪伴城市持續向前。</p>
+              <a href="company/index.html" class="hero-cta">認識京城市鐵 <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="corporate-ad-art" aria-hidden="true">
+              <img src="assets/images/keijo-city-rail-logo.png" alt="">
+              <span class="corporate-track corporate-track-one"></span>
+              <span class="corporate-track corporate-track-two"></span>
+            </div>
+          </article>
+
+          <div class="hero-carousel-controls">
+            <button type="button" class="hero-carousel-arrow" data-hero-prev aria-label="上一則宣傳">‹</button>
+            <div class="hero-carousel-dots" aria-label="選擇宣傳內容">
+              <button type="button" class="is-active" data-hero-dot="0" aria-label="顯示第 1 項" aria-current="true"></button>
+              <button type="button" data-hero-dot="1" aria-label="顯示第 2 項"></button>
+              <button type="button" data-hero-dot="2" aria-label="顯示第 3 項"></button>
+            </div>
+            <span class="banner-index" aria-live="polite">01 / 03</span>
+            <button type="button" class="hero-carousel-arrow" data-hero-next aria-label="下一則宣傳">›</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="route-directory" id="routes" aria-labelledby="routes-title">
+      <div class="container">
+        <div class="section-heading-row">
+          <div>
+            <div class="section-kicker">LINE INFORMATION</div>
+            <h2 id="routes-title">路線資訊</h2>
+          </div>
+          <a class="text-link" href="route/map.html">查看完整系統路線圖 <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="route-card-grid" id="routeCardGrid"></div>
+      </div>
+    </section>
+
+    <section class="fare-section" id="fare-search" aria-labelledby="fare-title">
+      <div class="container fare-layout">
+        <div class="fare-copy">
+          <div class="section-kicker orange">FARE & TICKET</div>
+          <h2 id="fare-title">快速票價查詢</h2>
+          <p>選擇出發站與目的站，即可試算成人普通票價、兒童票價與預估搭乘時間。</p>
+          <ul class="compact-list">
+            <li>本頁提供普通單程票價試算，實際票價以車站公告為準。</li>
+            <li>定期票、優待票及轉乘票價請參閱票務公告。</li>
+          </ul>
+        </div>
+
+        <form class="fare-card" id="fareForm">
+          <div class="fare-card-header">
+            <strong>單程票價試算</strong>
+            <span>普通乘車券</span>
+          </div>
+          <div class="fare-select-row">
+            <label>
+              <span>出發站</span>
+              <select id="originSelect" required>
+                <option value="">請選擇</option>
+              </select>
+            </label>
+            <button class="swap-button" type="button" id="swapStations" aria-label="對調出發站與目的站">⇄</button>
+            <label>
+              <span>目的站</span>
+              <select id="destinationSelect" required>
+                <option value="">請選擇</option>
+              </select>
+            </label>
+          </div>
+          <button class="primary-button" type="submit">查詢票價</button>
+          <div class="fare-result" id="fareResult" aria-live="polite">
+            <span>請先選擇出發站及目的站。</span>
+          </div>
+          <a class="fare-more-link" href="fare/index.html">進入完整票價・乘換查詢器 →</a>
+        </form>
+      </div>
+    </section>
+
+    <section class="news-section" id="news" aria-labelledby="news-title">
+      <div class="container news-layout">
+        <div class="news-main">
+          <div class="section-heading-row">
+            <div>
+              <div class="section-kicker">NEWS RELEASE</div>
+              <h2 id="news-title">最新消息</h2>
+            </div>
+            <div class="news-filter" role="group" aria-label="新聞分類">
+              <button class="active" type="button" data-news-filter="all">全部</button>
+              <button type="button" data-news-filter="service">服務</button>
+              <button type="button" data-news-filter="project">建設</button>
+              <button type="button" data-news-filter="company">企業</button>
+            </div>
+          </div>
+          <div class="news-list" id="newsList"></div>
+          <a class="wide-outline-link" href="news/index.html">查看所有公告與新聞</a>
+        </div>
+
+        <aside class="notice-board" aria-labelledby="notice-board-title">
+          <div class="notice-board-header">
+            <span aria-hidden="true">!</span>
+            <strong id="notice-board-title">重要公告</strong>
+          </div>
+          <article>
+            <small>乘車服務</small>
+            <h3>夏季大型活動期間部分車站將實施人流管制</h3>
+            <p>請預留候車時間，並依現場工作人員指示進出車站。</p>
+            <a href="news/index.html#service-news">查看詳情</a>
+          </article>
+          <article>
+            <small>票務系統</small>
+            <h3>自動售票機系統維護通知</h3>
+            <p>部分服務將於深夜時段暫停使用。</p>
+            <a href="news/index.html#ticket-news">查看詳情</a>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="public-policy-section" id="public-policy" aria-labelledby="policy-title">
+      <div class="container">
+        <div class="policy-heading">
+          <div>
+            <div class="section-kicker">PUBLIC MISSION</div>
+            <h2 id="policy-title">公共運輸政策與企業責任</h2>
+          </div>
+          <p>作為南殷鐵道集團旗下城市交通公司，我們定期公開安全、建設與服務改善進度。</p>
+        </div>
+
+        <div class="policy-grid">
+          <a class="policy-card" href="company/index.html#safety" id="safety">
+            <span class="policy-number">01</span>
+            <div>
+              <strong>安全與韌性</strong>
+              <p>號誌更新、防災整備及年度安全報告。</p>
+            </div>
+            <span class="policy-arrow">→</span>
+          </a>
+          <a class="policy-card" href="service/index.html" id="accessibility">
+            <span class="policy-number">02</span>
+            <div>
+              <strong>無障礙交通</strong>
+              <p>電梯建置、月台改善及乘車協助措施。</p>
+            </div>
+            <span class="policy-arrow">→</span>
+          </a>
+          <a class="policy-card" href="projects/index.html" id="projects">
+            <span class="policy-number">03</span>
+            <div>
+              <strong>建設計畫進度</strong>
+              <p>新線、車站改良與轉乘設施工程資訊。</p>
+            </div>
+            <span class="policy-arrow">→</span>
+          </a>
+          <a class="policy-card" href="company/index.html#open-data" id="open-data">
+            <span class="policy-number">04</span>
+            <div>
+              <strong>資料與資訊公開</strong>
+              <p>運量統計、財務資料與採購公開資訊。</p>
+            </div>
+            <span class="policy-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="administrative-section" id="procurement" aria-label="行政資訊">
+      <div class="container administrative-grid">
+        <div class="administrative-title">
+          <span>行政專區</span>
+          <strong>資訊公開與對外服務</strong>
+        </div>
+        <a href="company/index.html#procurement">政府採購與招標公告</a>
+        <a href="company/index.html#open-data">運輸統計與開放資料</a>
+        <a href="#feedback" id="feedback">旅客意見及服務品質調查</a>
+        <a href="company/index.html#recruit" id="recruit">人才招募與甄選資訊</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <div class="footer-logo-row">
+          <span class="mini-logo">KC</span>
+          <div>
+            <strong>京城市鐵股份有限公司</strong>
+            <small>Capital City Rail Company</small>
+          </div>
+        </div>
+        <p>南殷鐵道集團旗下城市交通事業</p>
+        <p class="footer-slogan">邁進新里程・京城市鐵</p>
+      </div>
+
+      <div class="footer-links">
+        <div>
+          <strong>旅客服務</strong>
+          <a href="service/index.html#operation-guide">運行資訊</a>
+          <a href="route/index.html">路線與車站</a>
+          <a href="fare/index.html">票價查詢</a>
+        </div>
+        <div>
+          <strong>企業資訊</strong>
+          <a href="company/index.html">企業責任</a>
+          <a href="projects/index.html">建設計畫</a>
+          <a href="company/index.html#open-data">資訊公開</a>
+        </div>
+        <div>
+          <strong>支援</strong>
+          <a href="service/index.html">常見問題</a>
+          <a href="service/index.html#lost-and-found">遺失物查詢</a>
+          <a href="company/index.html#contact">聯絡我們</a>
+        </div>
+      <div><strong>常用連結</strong><a href="https://nanyin-rail.example/" target="_blank" rel="noopener">南殷鐵道集團</a><a href="https://passenger.kokutetsu.example/" target="_blank" rel="noopener">國鐵旅客服務網</a><a href="mnm_web/index.html" target="_blank" rel="noopener">都營南順地鐵</a><a href="https://metro-government.keijo.example/" target="_blank" rel="noopener">京城都政司</a></div></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>本網站為虛構鐵道公司網站，所有資料均為世界觀設定。</span>
+        <span>© Capital City Rail Company</span>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="status-dialog" id="statusDialog">
+    <div class="dialog-header">
+      <div>
+        <small>TRAIN OPERATION STATUS</small>
+        <h2>各線運行狀況</h2>
+      </div>
+      <button type="button" id="closeStatusDialog" aria-label="關閉">×</button>
+    </div>
+    <div class="dialog-body" id="statusLineList"></div>
+    <div class="dialog-footer">
+      <span id="dialogUpdatedTime"></span>
+      <button type="button" class="primary-button" id="closeStatusDialogBottom">關閉</button>
+    </div>
+  </dialog>
+
+  <dialog class="search-dialog" id="searchDialog">
+    <div class="dialog-header">
+      <div>
+        <small>SITE SEARCH</small>
+        <h2>網站內搜尋</h2>
+      </div>
+      <button type="button" id="closeSearchDialog" aria-label="關閉">×</button>
+    </div>
+    <form class="site-search-form" id="siteSearchForm">
+      <label for="siteSearchInput">輸入關鍵字</label>
+      <div class="search-field">
+        <input type="search" id="siteSearchInput" placeholder="例如：票價、路線圖、東湖支線">
+        <button type="submit">搜尋</button>
+      </div>
+      <p id="siteSearchResult" aria-live="polite">請輸入關鍵字，系統將引導至相關資訊區塊。</p>
+    </form>
+  </dialog>
+
+  <script src="assets/js/site-data.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/hero-carousel.js"></script>
+  <script src="assets/js/operation-status.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="都營南順地鐵官方網站：旅程規劃、即時運行狀態、路線資訊與 MetroGoApp 下載。" name="description"/>
+<title>都營南順地鐵｜官方網站</title>
+<meta content="#001f5b" name="theme-color"/>
+<link href="assets/images/municipal-nanshun-metro-logo.png" rel="icon" type="image/png"/>
+<link href="assets/css/main.css" rel="stylesheet"/>
+</head>
+<body>
+<a class="skip-link" href="#main-content">跳到主要內容</a>
+<header class="site-header">
+<div class="top-strip">
+<div class="container top-strip-inner">
+<span>京城都政司運輸司署轄下</span>
+<nav aria-label="輔助導覽">
+<a href="#status">運行資訊</a>
+<a href="route/map.html">路線圖</a>
+<a href="#fares">票價</a>
+<a href="#help">協助與聯絡</a>
+</nav>
+</div>
+</div>
+<div class="brand-row">
+<div class="container brand-inner">
+<a aria-label="都營南順地鐵首頁" class="brand" href="index.html">
+<img alt="都營南順地鐵" height="229" src="assets/images/municipal-nanshun-metro-logo.png" width="887"/>
+</a>
+<form class="site-search" role="search">
+<label for="site-search-input">搜尋網站</label>
+<div>
+<input id="site-search-input" placeholder="搜尋車站、路線或服務" type="search"/>
+<button type="submit">搜尋</button>
+</div>
+</form>
+</div>
+</div>
+<nav aria-label="主要導覽" class="main-nav">
+<div class="container main-nav-inner">
+<a class="active" href="#planner">規劃旅程</a>
+<a href="#status">運行資訊</a>
+<a href="route/index.html">路線</a>
+<a href="route/map.html">路線圖</a>
+<a href="#fares">票價資訊</a>
+<a href="#metrogo">MetroGoApp</a>
+</div>
+</nav>
+</header>
+<main id="main-content">
+<section class="hero-shell">
+<div class="container hero-grid">
+<section aria-labelledby="planner-title" class="journey-planner" id="planner">
+<div aria-label="旅程規劃" class="panel-tabs" role="tablist">
+<button class="selected" type="button">規劃旅程</button>
+<button type="button">即時到站資訊</button>
+<button type="button">附近交通</button>
+</div>
+<div class="planner-body">
+<p class="eyebrow">乘車資訊</p>
+<h1 id="planner-title">規劃南順行程</h1>
+<form class="planner-form">
+<label>
+<span>出發地</span>
+<input placeholder="出發地、車站或地標" type="text"/>
+</label>
+<button aria-label="對調出發地與目的地" class="swap" type="button">⇅</button>
+<label>
+<span>目的地</span>
+<input placeholder="目的地、車站或地標" type="text"/>
+</label>
+<fieldset class="time-options">
+<legend>行程時間</legend>
+<label><input checked="" name="time" type="radio"/> 現在出發</label>
+<label><input name="time" type="radio"/> 指定抵達時間</label>
+</fieldset>
+<fieldset class="mode-options">
+<legend>交通方式</legend>
+<label><input checked="" type="checkbox"/> 地鐵</label>
+<label><input checked="" type="checkbox"/> 巴士</label>
+<label><input checked="" type="checkbox"/> 鐵路</label>
+<label><input type="checkbox"/> 單車</label>
+</fieldset>
+<button class="primary-action" type="submit">搜尋路線</button>
+</form>
+</div>
+</section>
+<section aria-labelledby="metrogo-title" class="app-promo" id="metrogo">
+<div class="promo-copy">
+<p class="eyebrow">MetroGoApp</p>
+<h2 id="metrogo-title">MetroGoApp 一手掌握地鐵、巴士、鐵路與單車資訊。</h2>
+<p>下載 MetroGoApp，查詢即時班次、轉乘建議、月台資訊與單車租借點，出發前掌握全城交通。</p>
+<div aria-label="下載連結" class="store-row">
+<a href="#download-ios">App Store</a>
+<a href="#download-android">Google Play</a>
+</div>
+</div>
+<div aria-hidden="true" class="phone-preview">
+<div class="phone-screen">
+<span class="phone-bar"></span>
+<strong>MetroGo</strong>
+<div class="route-pill red">1 大成線</div>
+<div class="route-pill blue">2 江岸線</div>
+<div class="route-pill pink">9A 新崗線</div>
+<div class="arrival-card">
+<small>下一班</small>
+<b>2 分鐘</b>
+</div>
+</div>
+</div>
+</section>
+</div>
+</section>
+<section aria-labelledby="status-title" class="status-band" id="status">
+<div class="container status-grid">
+<div class="status-heading">
+<p class="eyebrow">運行狀態</p>
+<h2 id="status-title">全線運行狀態</h2>
+<p>最後更新：今日 14:20。請於出發前再次確認列車與接駁服務。</p>
+</div>
+<div class="status-summary">
+<strong>大部分路線正常運行</strong>
+<span>新崗線有輕微延誤，其餘路線目前大致正常。</span>
+</div>
+<a class="status-link" href="#routes">查看各線狀態</a>
+</div>
+</section>
+<section aria-labelledby="quick-title" class="quick-links">
+<div class="container">
+<h2 id="quick-title">常用服務</h2>
+<div class="quick-grid">
+<a href="#planner">
+<span>⌕</span>
+<strong>旅程規劃</strong>
+<small>搜尋最佳轉乘路線</small>
+</a>
+<a href="#fares">
+<span>¥</span>
+<strong>票價與定期票</strong>
+<small>單程、定期與優惠資訊</small>
+</a>
+<a href="route/map.html">
+<span>▦</span>
+<strong>路線圖</strong>
+<small>下載與車站導覽</small>
+</a>
+<a href="#accessibility">
+<span>♿</span>
+<strong>無障礙乘車</strong>
+<small>電梯、月台與協助服務</small>
+</a>
+</div>
+</div>
+</section>
+<section aria-labelledby="routes-title" class="routes-section" id="routes">
+<div class="container routes-layout">
+<div class="routes-copy">
+<p class="eyebrow">地鐵、巴士、鐵路與單車</p>
+<h2 id="routes-title">都營南順地鐵路線</h2>
+<p>目前營運 9 條地鐵路線，連接南順主要商業區、江岸新城、北岸住宅帶與新崗交通節點。</p>
+<a class="outline-action" href="route/map.html">查看路網圖</a>
+</div>
+<div aria-label="路線列表" class="line-board">
+<article style="--line-color:#f20c13">
+<b>1</b><div><strong>大成線</strong><span>第 1 號線</span></div><em>正常運行</em>
+</article>
+<article style="--line-color:#1e91df">
+<b>2</b><div><strong>江岸線</strong><span>第 2 號線</span></div><em>正常運行</em>
+</article>
+<article style="--line-color:#c43a91">
+<b>3</b><div><strong>南岸線</strong><span>第 3 號線</span></div><em>正常運行</em>
+</article>
+<article style="--line-color:#7ca34d">
+<b>6</b><div><strong>東西線</strong><span>第 6 號線</span></div><em>正常運行</em>
+</article>
+<article style="--line-color:#95f100">
+<b>7</b><div><strong>臨和線</strong><span>第 7 號線</span></div><em>正常運行</em>
+</article>
+<article style="--line-color:#aa6a80">
+<b>9</b><div><strong>北岸線</strong><span>第 9 號線</span></div><em>正常運行</em>
+</article>
+<article style="--line-color:#f20c91">
+<b>9A</b><div><strong>新崗線</strong><span>第 9A 號線</span></div><em>輕微延誤</em>
+</article>
+<article style="--line-color:#f36cd4">
+<b>10</b><div><strong>聖廟線</strong><span>第 10 號線</span></div><em>正常運行</em>
+</article>
+<article style="--line-color:#42c6b9">
+<b>10A</b><div><strong>拗寧線</strong><span>第 10A 號線</span></div><em>正常運行</em>
+</article>
+</div>
+</div>
+</section>
+<section aria-labelledby="maps-title" class="map-section" id="maps">
+<div class="container map-grid">
+<div>
+<p class="eyebrow">路線圖與指南</p>
+<h2 id="maps-title">路線圖與服務路網</h2>
+<p>以路線色與編號快速辨識各線，並下載完整路線圖，方便出發前確認轉乘方向。</p>
+<div class="map-actions">
+<a class="primary-action link-button" href="route/map.html">查看路線圖</a>
+<a class="secondary-action" href="#routes">查看文字版路線</a>
+</div>
+</div>
+<figure class="line-image-card">
+<img alt="都營南順地鐵路線列表，包含大成線、江岸線、南岸線、東西線、臨和線、北岸線、新崗線、聖廟線與拗寧線" src="assets/images/nanshun-metro-lines.png"/>
+<figcaption>營運路線列表</figcaption>
+</figure>
+</div>
+</section>
+<section aria-labelledby="info-title" class="info-section" id="fares">
+<div class="container info-grid">
+<article>
+<span>票價資訊</span>
+<h2 id="info-title">車票、定期票與非接觸支付</h2>
+<p>支援 MetroGoPay、IC 交通卡與紙本單程票。轉乘巴士與鐵路時，可於 MetroGoApp 查詢適用優惠。</p>
+<a href="#planner">查詢票價</a>
+</article>
+<article id="accessibility">
+<span>無障礙服務</span>
+<h2>無障礙與乘車協助</h2>
+<p>主要車站提供電梯、無障礙閘機、月台導引與站務協助。出發前可先確認可用設備。</p>
+<a href="#help">取得協助</a>
+</article>
+<article id="help">
+<span>協助與聯絡</span>
+<h2>客服與旅客支援</h2>
+<p>遺失物、退款、服務建議與緊急通報均可由客服中心受理。</p>
+<a href="mailto:service@nanshun-metro.example">聯絡客服</a>
+</article>
+</div>
+</section>
+<section aria-label="主管機關" class="authority-band">
+<div class="container authority-inner">
+<img alt="京南順都政司運輸司署" height="80" src="assets/images/keijo-metropolitan-transport-bureau.png" width="686"/>
+<p>都營南順地鐵由京城都政司運輸司署監督，提供安全、可靠、可持續的都市公共運輸服務。</p>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container footer-grid">
+<div>
+<img alt="都營南順地鐵" height="229" src="assets/images/municipal-nanshun-metro-logo.png" width="887"/>
+<p>都營南順地鐵</p>
+</div>
+<nav aria-label="頁尾導覽">
+<a href="#planner">規劃旅程</a>
+<a href="#status">運行資訊</a>
+<a href="#routes">路線</a>
+<a href="#metrogo">MetroGoApp</a>
+<a href="../index.html">京城市鐵網站</a>
+</nav>
+<small>© 都營南順地鐵 Municipal Nanshun Metro</small>
+</div>
+</footer>
+</body>
+</html>
