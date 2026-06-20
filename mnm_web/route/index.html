@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="都營南順地鐵路線與車站資訊。">
-  <title>路線與車站｜都營南順地鐵</title>
+  <meta name="description" content="都營南順地鐵路線資訊。">
+  <title>路線資訊｜都營南順地鐵</title>
   <meta name="theme-color" content="#001f5b">
   <link rel="icon" type="image/png" href="../assets/images/municipal-nanshun-metro-logo.png">
   <link rel="stylesheet" href="../assets/css/main.css">
@@ -19,8 +19,8 @@
         <nav aria-label="輔助導覽">
           <a href="../index.html#status">運行資訊</a>
           <a href="map.html">路線圖</a>
-          <a href="../index.html#fares">票價</a>
-          <a href="../index.html#help">協助與聯絡</a>
+          <a href="../travel/index.html#tickets">車票</a>
+          <a href="../services/index.html#contact">協助與聯絡</a>
         </nav>
       </div>
     </div>
@@ -42,12 +42,11 @@
 
     <nav class="main-nav" aria-label="主要導覽">
       <div class="container main-nav-inner">
-        <a href="../index.html#planner">旅程規劃</a>
-        <a href="../index.html#status">運行資訊</a>
-        <a class="active" href="index.html">路線</a>
-        <a href="map.html">路線圖</a>
-        <a href="../index.html#fares">票價資訊</a>
-        <a href="../index.html#metrogo">MetroGoApp</a>
+        <a class="active" href="../travel/index.html">車票與路線</a>
+        <a href="../services/index.html">服務及設施</a>
+        <a href="../responsibility/index.html">企業責任</a>
+        <a href="../business/index.html">附屬事業</a>
+        <a href="../metrogo/index.html">MetroGO App</a>
       </div>
     </nav>
   </header>
@@ -57,16 +56,16 @@
       <div class="container">
         <a href="../index.html">首頁</a>
         <span aria-hidden="true">›</span>
-        <span>路線與車站</span>
+        <span>路線資訊</span>
       </div>
     </nav>
 
     <section class="map-page-hero">
       <div class="container map-page-hero-inner">
         <div>
-          <p class="eyebrow">路線與車站</p>
-          <h1>都營南順地鐵路線與車站</h1>
-          <p>查詢都營南順地鐵目前營運路線、路線圖與車站資訊。詳細車站資料將於確認後陸續公布。</p>
+          <p class="eyebrow">路線資訊</p>
+          <h1>都營南順地鐵路線資訊</h1>
+          <p>選擇路線以查看路線編號及名稱。詳細車站資訊將另行公布。</p>
         </div>
         <div class="map-file-meta" aria-label="本頁資訊">
           <span>營運資料</span>
@@ -81,32 +80,40 @@
         <div>
           <p class="eyebrow">路線索引</p>
           <h2 id="line-title">營運路線</h2>
-          <p>以下為都營南順地鐵目前營運路線。各線詳細資訊將陸續提供。</p>
+          <p>以下為都營南順地鐵目前營運路線。選擇其中一條路線，下方將顯示所屬路線資料。</p>
           <div class="map-actions">
             <a class="primary-action link-button" href="map.html">查看路線圖</a>
           </div>
         </div>
-        <div class="route-button-grid" aria-label="都營南順地鐵營運路線">
-          <button type="button" disabled style="--line-color:#f20c13"><b>1</b><span><strong>大成線</strong><small>Dacheng Line</small></span></button>
-          <button type="button" disabled style="--line-color:#1e91df"><b>2</b><span><strong>江岸線</strong><small>Jiang-an Line</small></span></button>
-          <button type="button" disabled style="--line-color:#c43a91"><b>3</b><span><strong>南岸線</strong><small>Southern Line</small></span></button>
-          <button type="button" disabled style="--line-color:#7ca34d"><b>6</b><span><strong>東西線</strong><small>East-West Line</small></span></button>
-          <button type="button" disabled style="--line-color:#95f100"><b>7</b><span><strong>臨和線</strong><small>Linhe Line</small></span></button>
-          <button type="button" disabled style="--line-color:#aa6a80"><b>9</b><span><strong>北岸線</strong><small>Northern Line</small></span></button>
-          <button type="button" disabled style="--line-color:#f20c91"><b>9A</b><span><strong>新崗線</strong><small>Xingang Line</small></span></button>
-          <button type="button" disabled style="--line-color:#f36cd4"><b>10</b><span><strong>聖廟線</strong><small>Shengmiao Line</small></span></button>
-          <button type="button" disabled style="--line-color:#42c6b9"><b>10A</b><span><strong>拗寧線</strong><small>Yaoning Line</small></span></button>
+        <div class="route-button-grid" role="tablist" aria-label="都營南順地鐵營運路線">
+          <button id="route-tab-1" type="button" role="tab" aria-selected="false" aria-controls="route-detail" data-route-number="1" data-route-name="大成線" data-route-english="Dacheng Line" data-route-color="#f20c13" style="--line-color:#f20c13"><b>1</b><span><strong>大成線</strong><small>Dacheng Line</small></span></button>
+          <button id="route-tab-2" type="button" role="tab" aria-selected="false" aria-controls="route-detail" data-route-number="2" data-route-name="江岸線" data-route-english="Jiang-an Line" data-route-color="#1e91df" style="--line-color:#1e91df"><b>2</b><span><strong>江岸線</strong><small>Jiang-an Line</small></span></button>
+          <button id="route-tab-3" type="button" role="tab" aria-selected="false" aria-controls="route-detail" data-route-number="3" data-route-name="南岸線" data-route-english="Southern Line" data-route-color="#c43a91" style="--line-color:#c43a91"><b>3</b><span><strong>南岸線</strong><small>Southern Line</small></span></button>
+          <button id="route-tab-6" type="button" role="tab" aria-selected="false" aria-controls="route-detail" data-route-number="6" data-route-name="東西線" data-route-english="East-West Line" data-route-color="#7ca34d" style="--line-color:#7ca34d"><b>6</b><span><strong>東西線</strong><small>East-West Line</small></span></button>
+          <button id="route-tab-7" type="button" role="tab" aria-selected="false" aria-controls="route-detail" data-route-number="7" data-route-name="臨和線" data-route-english="Linhe Line" data-route-color="#95f100" style="--line-color:#95f100"><b>7</b><span><strong>臨和線</strong><small>Linhe Line</small></span></button>
+          <button id="route-tab-9" type="button" role="tab" aria-selected="false" aria-controls="route-detail" data-route-number="9" data-route-name="北岸線" data-route-english="Northern Line" data-route-color="#aa6a80" style="--line-color:#aa6a80"><b>9</b><span><strong>北岸線</strong><small>Northern Line</small></span></button>
+          <button id="route-tab-9a" type="button" role="tab" aria-selected="false" aria-controls="route-detail" data-route-number="9A" data-route-name="新崗線" data-route-english="Xingang Line" data-route-color="#f20c91" style="--line-color:#f20c91"><b>9A</b><span><strong>新崗線</strong><small>Xingang Line</small></span></button>
+          <button id="route-tab-10" type="button" role="tab" aria-selected="false" aria-controls="route-detail" data-route-number="10" data-route-name="聖廟線" data-route-english="Shengmiao Line" data-route-color="#f36cd4" style="--line-color:#f36cd4"><b>10</b><span><strong>聖廟線</strong><small>Shengmiao Line</small></span></button>
+          <button id="route-tab-10a" type="button" role="tab" aria-selected="false" aria-controls="route-detail" data-route-number="10A" data-route-name="拗寧線" data-route-english="Yaoning Line" data-route-color="#42c6b9" style="--line-color:#42c6b9"><b>10A</b><span><strong>拗寧線</strong><small>Yaoning Line</small></span></button>
         </div>
       </div>
     </section>
 
-    <section class="map-download-section" aria-labelledby="station-title">
+    <section class="map-download-section" aria-labelledby="route-detail-title">
       <div class="container map-download-layout">
-        <div class="map-download-panel">
-          <p class="eyebrow">車站資訊</p>
-          <h2 id="station-title">車站資訊準備中</h2>
-          <p>完整車站清單、站號、出口、無障礙設備與轉乘動線正在整理中。請以車站公告及 MetroGoApp 顯示資訊為準。</p>
-          <p class="download-note">如需確認乘車動線，請先參閱路線圖或於出發前查詢最新公告。</p>
+        <div id="route-detail" class="map-download-panel route-detail-panel" role="tabpanel" aria-live="polite">
+          <p class="eyebrow">路線資訊</p>
+          <div class="route-detail-heading">
+            <span class="route-detail-badge" aria-hidden="true">—</span>
+            <div>
+              <h2 id="route-detail-title">請選擇路線</h2>
+              <p class="route-detail-english">從上方九條營運路線中選擇一條。</p>
+            </div>
+          </div>
+          <div class="station-list-placeholder" hidden>
+            <h3>所屬車站</h3>
+            <p><strong class="selected-route-name"></strong>的詳細車站資訊將另行公布。</p>
+          </div>
         </div>
 
         <aside class="map-notice" aria-labelledby="route-structure-title">
@@ -114,7 +121,8 @@
           <ul>
             <li>各線營運狀態請參閱首頁「運行資訊」。</li>
             <li>完整路線圖可於路線圖下載頁取得。</li>
-            <li>車站設施及無障礙資訊將陸續更新。</li>
+            <li>選擇路線後可查看路線名稱及識別色。</li>
+            <li>詳細車站資訊將另行公布。</li>
             <li>工程或活動期間，實際轉乘動線可能調整。</li>
           </ul>
         </aside>
@@ -129,14 +137,16 @@
         <p>Municipal Nanshun Metro</p>
       </div>
       <nav aria-label="頁尾導覽">
-        <a href="../index.html#planner">旅程規劃</a>
-        <a href="../index.html#status">運行資訊</a>
-        <a href="index.html">路線</a>
-        <a href="../index.html#metrogo">MetroGoApp</a>
+        <a href="../travel/index.html">車票與路線</a>
+        <a href="../services/index.html">服務及設施</a>
+        <a href="../responsibility/index.html">企業責任</a>
+        <a href="../business/index.html">附屬事業</a>
+        <a href="../metrogo/index.html">MetroGO App</a>
         <a href="../../index.html">京城市鐵網站</a>
       </nav>
       <small>© 都營南順地鐵 Municipal Nanshun Metro</small>
     </div>
   </footer>
+  <script src="../assets/js/route-selector.js" defer></script>
 </body>
 </html>
