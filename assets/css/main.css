@@ -2300,7 +2300,7 @@ svg {
 
 .announcement-category-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 18px;
 }
 
@@ -2319,10 +2319,22 @@ svg {
 }
 
 .announcement-category-card a {
+  display: block;
+  padding: 10px 0;
   color: var(--blue-800);
+  border-top: 1px solid var(--line);
   font-size: 13px;
   font-weight: 800;
   text-decoration: underline;
+}
+
+.announcement-category-card a time {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .announcement-category-card p {

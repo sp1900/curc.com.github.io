@@ -19,24 +19,29 @@
 
   if (!data || !lineDirectoryList) return;
 
-  lineDirectoryList.innerHTML = data.lines
-    .map((line) => {
-      const statusClass = line.status === "normal" ? "" : " delay";
-      const description = line.subtitle || line.serviceName || line.trunkName || "";
-      const href = linePageMap[line.id] || "#line-guide";
+  function renderLineDirectory() {
+    lineDirectoryList.innerHTML = data.lines
+      .map((line) => {
+        const statusClass = line.status === "normal" ? "" : " delay";
+        const description = line.subtitle || line.serviceName || line.trunkName || "";
+        const href = linePageMap[line.id] || "#line-guide";
 
-      return `
-        <a class="line-directory-item${statusClass}" href="${href}" style="--route-color:${line.color}">
-          <span>${line.symbol}</span>
-          <div>
-            <strong>${line.name}</strong>
-            <small>${description}</small>
-          </div>
-          <b>${line.statusLabel}</b>
-        </a>
-      `;
-    })
-    .join("");
+        return `
+          <a class="line-directory-item${statusClass}" href="${href}" style="--route-color:${line.color}">
+            <span>${line.symbol}</span>
+            <div>
+              <strong>${line.name}</strong>
+              <small>${description}</small>
+            </div>
+            <b>${line.statusLabel}</b>
+          </a>
+        `;
+      })
+      .join("");
+  }
+
+  renderLineDirectory();
+  window.addEventListener("keijo:operation-status-change", renderLineDirectory);
 
   if (stationList) {
     stationList.innerHTML = data.stations

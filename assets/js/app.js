@@ -22,8 +22,7 @@
   const newsList = qs("#newsList");
   const statusDialog = qs("#statusDialog");
   const searchDialog = qs("#searchDialog");
-
-  const statusSummary = getStatusSummary(data.lines);
+  const newsData = window.KEIJO_NEWS_DATA;
 
   init();
 
@@ -51,7 +50,7 @@
     if (!delayed.length) {
       return {
         label: "全線大致正常運行",
-        detail: "目前沒有影響全線的重大事故。",
+        detail: "各線列車依照時刻表運行。",
         state: "normal"
       };
     }
@@ -64,6 +63,7 @@
   }
 
   function renderOperationStatus() {
+    const statusSummary = getStatusSummary(data.lines);
     statusUpdated.textContent = `最近更新：${data.updatedAt}`;
     dialogUpdatedTime.textContent = `資料時間：${data.updatedAt}`;
 
@@ -74,6 +74,8 @@
     `;
 
     const beacon = qs(".status-beacon");
+    beacon.style.background = "#35c879";
+    beacon.style.boxShadow = "0 0 0 4px rgba(53,200,121,.2)";
     if (statusSummary.state === "delay") {
       beacon.style.background = "#f1aa2c";
       beacon.style.boxShadow = "0 0 0 4px rgba(241,170,44,.22)";
@@ -149,26 +151,43 @@
   }
 
   function renderNews(filter) {
+    const sourceItems = [...(newsData?.items || data.news)].sort((a, b) => {
+      const dateOrder = b.date.localeCompare(a.date);
+      return dateOrder || b.id.localeCompare(a.id);
+    });
     const items =
       filter === "all"
-        ? data.news
-        : data.news.filter((item) => item.category === filter);
+        ? sourceItems
+        : sourceItems.filter((item) => item.category === filter);
 
     newsList.innerHTML = items
       .map(
-        (item) => `
-          <a class="news-item" href="${item.url || "news/index.html"}" data-category="${item.category}">
+        (item) => {
+          const category = newsData?.categories.find(
+            (entry) => entry.id === item.category
+          );
+          const href = newsData
+            ? `news/${item.url}`
+            : item.url || "news/index.html";
+          return `
+          <a class="news-item" href="${href}" data-category="${item.category}">
             <time class="news-date">${item.date}</time>
-            <span class="news-category">${item.categoryLabel}</span>
+            <span class="news-category">${category?.label || item.categoryLabel}</span>
             <span class="news-title">${item.title}</span>
             <span class="news-arrow" aria-hidden="true">›</span>
           </a>
-        `
+        `;
+        }
       )
       .join("");
   }
 
   function attachEvents() {
+    window.addEventListener("keijo:operation-status-change", () => {
+      renderOperationStatus();
+      renderRouteCards();
+      renderStatusDialog();
+    });
     qs("#menuToggle").addEventListener("click", toggleMenu);
     qs("#fontSizeBtn").addEventListener("click", toggleFontSize);
     qs("#languageBtn").addEventListener("click", showLanguageNotice);
@@ -225,7 +244,7 @@
   }
 
   function showLanguageNotice() {
-    alert("英文版頁面準備中。請先使用繁體中文頁面查詢乘車資訊。");
+    alert("目前僅提供繁體中文頁面。");
   }
 
   function openDialog(dialog) {

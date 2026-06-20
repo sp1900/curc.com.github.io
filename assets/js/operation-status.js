@@ -14,6 +14,10 @@
     renderStatusDialog(dialog);
     updateOperationNavIcon();
     bindOperationTriggers(dialog);
+    window.addEventListener("keijo:operation-status-change", () => {
+      renderStatusDialog(dialog);
+      updateOperationNavIcon();
+    });
   }
 
   function ensureDialog() {
