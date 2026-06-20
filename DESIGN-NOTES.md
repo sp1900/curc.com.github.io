@@ -89,7 +89,7 @@
 
 ## 資料與世界觀規範
 
-`assets/js/site-data.js` 是世界觀與營運基礎資料，包含路線、車站、票價級距、運行狀況與首頁公告資料。它不是普通文案檔，修改前必須確認是否會改變世界觀設定。
+`assets/js/site-data.js` 是世界觀與營運基礎資料，包含路線、車站、票價級距與首頁公告資料。它不是普通文案檔，修改前必須確認是否會改變世界觀設定。檔案中的運行狀態只作後備初始值，實際畫面由獨立的運行狀況系統統一產生。
 
 除非明確要求，以下資料不得任意更動：
 
@@ -107,6 +107,11 @@
 - 共用樣式集中於 `assets/css/main.css`。
 - 首頁互動集中於 `assets/js/app.js`。
 - 全站運行資訊彈窗集中於 `assets/js/operation-status.js`。
+- 運行事件內容集中於 `assets/js/operation-data.js`，抽選、保存與到期更新集中於 `assets/js/operation-system.js`。
+- 公告索引集中於 `assets/js/news-data.js`，首頁與公告列表不得各自維護公告資料。
+- `assets/js/news-index.js` 負責公告列表頁的日期排序、分類列表與資料日期。
+- 運行系統不得修改路線名稱、代號、顏色、幹線關係或車站資料，只能更新運行狀態、狀態說明與資料時間。
+- 頁面載入順序必須為 `site-data.js`、`operation-data.js`、`operation-system.js`，其後才是 `operation-status.js`、`app.js`、`route.js` 或 `line-detail.js` 等顯示程式。
 - 路線專屬頁運行狀態顯示集中於 `assets/js/line-detail.js`。
 - 路線導覽頁資料渲染集中於 `assets/js/route.js`。
 - favicon 使用 `assets/images/cur-favicon.png`。
@@ -118,7 +123,7 @@
 
 ## 公告頁規範
 
-公告系統採靜態維護，不做後台或發布器。維護方式是複製 `news/templates/announcement-template.html`，改成新的公告編號頁面。
+公告系統採靜態維護，不做後台或發布器。維護方式是複製 `news/templates/announcement-template.html`，改成新的公告編號頁面，再於 `assets/js/news-data.js` 登記一次；首頁與公告列表會自動同步。
 
 單篇公告應包含：
 
@@ -141,3 +146,11 @@
 - 使用 `#anchor` 前需確認目標頁確實存在對應 `id`。
 - 若連結是給民眾使用，文案應避免「原型」、「假連結」、「下一步」等內部製作用語。
 - 虛構世界觀 warning 應保留於頁尾。
+
+## 對外文案規範
+
+- 網站以旅客與一般民眾為對象，不公開「整理中」、「準備中」、「資料確認中」等內部製作進度。
+- 未完成或尚無資料的項目，可省略內容，或使用「暫未提供」、「另行公布」等簡短說明。
+- 不得為填滿版面而自行補造服務內容、日期、票價、路線、車站、機構關係或政策。
+- 同一名稱須全站一致；應用程式名稱統一寫作「MetroGO App」。
+- 公告範本內的編輯提示只供維護人員使用，發布前必須換成正式內容或移除。

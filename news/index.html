@@ -23,7 +23,7 @@
     <section class="routes-page-hero">
       <div class="container routes-page-hero-inner">
         <div><div class="section-kicker">NEWS RELEASE</div><h1>公告與新聞</h1><p>查看運行服務、建設工程、票務維護及企業資訊公告。</p></div>
-        <div class="route-map-meta" aria-label="公告資訊"><span>公告分類</span><strong>NEWS</strong><small>資料時間：2026.06.17</small></div>
+        <div class="route-map-meta" aria-label="公告資訊"><span>公告分類</span><strong>NEWS</strong><small id="newsDataUpdated">最新公告載入中</small></div>
       </div>
     </section>
 
@@ -39,14 +39,10 @@
       </div>
     </section>
 
-    <section class="news-section announcement-index-section" id="service-news" aria-labelledby="latest-news-title">
+    <section class="news-section announcement-index-section" id="latest-news" aria-labelledby="latest-news-title">
       <div class="container">
         <div class="section-heading-row"><div><div class="section-kicker">LATEST</div><h2 id="latest-news-title">最新公告</h2></div></div>
-        <div class="announcement-list">
-          <a class="news-item" href="20260617-01.html" data-category="service"><time class="news-date">2026.06.17</time><span class="news-category">服務</span><span class="news-title">日間服務提升：天從崗幹線班次優化及東湖支線服務調整</span><span class="news-arrow" aria-hidden="true">›</span></a>
-          <a class="news-item" href="20260612-01.html" data-category="project"><time class="news-date">2026.06.12</time><span class="news-category">建設</span><span class="news-title">寰宇門站轉乘大廳改善工程第二階段施工公告</span><span class="news-arrow" aria-hidden="true">›</span></a>
-          <a class="news-item" href="20260608-01.html" data-category="company"><time class="news-date">2026.06.08</time><span class="news-category">企業</span><span class="news-title">京城市鐵發布 2025 年度安全與服務品質報告</span><span class="news-arrow" aria-hidden="true">›</span></a>
-        </div>
+        <div class="announcement-list" id="announcementList"></div>
       </div>
     </section>
 
@@ -54,17 +50,21 @@
       <div class="container">
         <div class="section-heading-row"><div><div class="section-kicker">ARCHIVE</div><h2 id="archive-title">分類公告</h2></div></div>
         <div class="announcement-category-grid">
+          <section id="service-news" class="announcement-category-card" aria-labelledby="service-news-title">
+            <h3 id="service-news-title">服務公告</h3>
+            <div data-news-category-list="service"></div>
+          </section>
           <section id="project-news" class="announcement-category-card" aria-labelledby="project-news-title">
             <h3 id="project-news-title">建設公告</h3>
-            <a href="20260612-01.html">寰宇門站轉乘大廳改善工程第二階段施工公告</a>
+            <div data-news-category-list="project"></div>
           </section>
           <section id="ticket-news" class="announcement-category-card" aria-labelledby="ticket-news-title">
             <h3 id="ticket-news-title">票務公告</h3>
-            <p>目前沒有新的票務公告。</p>
+            <div data-news-category-list="ticket"></div>
           </section>
           <section id="company-news" class="announcement-category-card" aria-labelledby="company-news-title">
             <h3 id="company-news-title">企業資訊</h3>
-            <a href="20260608-01.html">京城市鐵發布 2025 年度安全與服務品質報告</a>
+            <div data-news-category-list="company"></div>
           </section>
         </div>
       </div>
@@ -79,6 +79,10 @@
     <div class="footer-bottom"><div class="container"><span>本網站為虛構鐵道公司網站，所有資料均為世界觀設定。</span><span>© Capital City Rail Company</span></div></div>
   </footer>
   <script src="../assets/js/site-data.js"></script>
+  <script src="../assets/js/news-data.js"></script>
+  <script src="../assets/js/news-index.js"></script>
+  <script src="../assets/js/operation-data.js"></script>
+  <script src="../assets/js/operation-system.js"></script>
   <script src="../assets/js/operation-status.js"></script>
 </body>
 </html>

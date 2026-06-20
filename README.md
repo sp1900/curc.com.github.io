@@ -72,9 +72,14 @@ keijo-city-rail/
 │  │     ├─ 20260612-01-construction-notice.pdf
 │  │     └─ 20260608-01-safety-report-summary.pdf
 │  ├─ pdf/
-│  │  └─ keijo-city-rail-map.pdf
+│  │  ├─ keijo-city-rail-map.pdf
+│  │  └─ keijo-city-rail-network-map.pdf
 │  └─ js/
 │     ├─ site-data.js
+│     ├─ news-data.js
+│     ├─ news-index.js
+│     ├─ operation-data.js
+│     ├─ operation-system.js
 │     ├─ operation-status.js
 │     ├─ line-detail.js
 │     ├─ route.js
@@ -101,13 +106,21 @@ http://localhost:8000/
 
 ## 資料與程式分工
 
-路線、車站、新聞、票價級距與運行狀況集中於：
+路線、車站、新聞與票價級距等基礎資料集中於：
 
 ```text
 assets/js/site-data.js
 ```
 
 `site-data.js` 是基礎世界觀與營運資料。除非明確要修改世界觀設定，否則不得任意更改路線名稱、路線代號、站名、幹線名稱、路線顏色或既有營運設定。
+
+模擬運行事件的機率、理由與延誤範圍集中於：
+
+```text
+assets/js/operation-data.js
+```
+
+運行狀況抽選、跨頁保存與到期更新由 `assets/js/operation-system.js` 負責。結果維持 20 至 30 分鐘；各頁必須先載入 `site-data.js`，再依序載入 `operation-data.js` 與 `operation-system.js`，最後才載入畫面顯示程式。
 
 修改外觀：
 
@@ -147,6 +160,14 @@ news/templates/announcement-template.html
 
 公告編號建議使用 `YYYYMMDD-XX`，例如 `20260617-01.html`。公告圖片放在 `assets/news/images/`，公告附件放在 `assets/news/attachments/`。
 
+完成公告頁後，只需在以下檔案的 `items` 加入一筆索引資料：
+
+```text
+assets/js/news-data.js
+```
+
+首頁公告、公告列表、分類公告及公告資料日期均會自動同步，不應再直接修改 `news/index.html` 內的公告項目。`assets/js/news-index.js` 負責公告列表頁的排序與分類顯示。
+
 ## 子頁 head 標準
 
 根目錄頁面使用：
@@ -178,12 +199,13 @@ news/templates/announcement-template.html
 
 ## 公告系統規範
 
-- `news/index.html` 是公告列表頁，手動維護最新公告與分類公告。
+- `news/index.html` 是公告列表頁，內容由 `assets/js/news-data.js` 自動產生。
 - 單篇公告以公告編號命名，例如 `news/20260617-01.html`。
 - 單篇公告固定包含：公告編號、公告日期、分類、更新日期、標題、主文、可選大圖、附件與返回列表連結。
 - 單篇公告頂部保留 `ANNOUNCEMENT DATA` 註解區，方便維護人員辨識資料。
 - 附件不放入 `assets/pdf/`，應放入 `assets/news/attachments/`。
 - 公告圖片不放入 `assets/images/`，應放入 `assets/news/images/`。
+- 新公告只在 `assets/js/news-data.js` 登記一次；首頁和分類列表不得另行複製公告資料。
 
 ## 下一階段建議
 
