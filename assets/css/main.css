@@ -1607,6 +1607,10 @@ svg {
   opacity: 1;
 }
 
+.station-lane.no-track::before {
+  opacity: 0;
+}
+
 .station-row.branch-start .branch-lane.has-track::before {
   top: 50%;
 }
@@ -1652,11 +1656,64 @@ svg {
   border-color: var(--orange-600);
 }
 
-.station-card strong {
+.station-name-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+}
+
+.station-name-block strong {
   min-width: 0;
   color: var(--blue-950);
   font-size: 17px;
   line-height: 1.35;
+}
+
+.station-transfer-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+}
+
+.station-transfer-chip {
+  display: inline-flex;
+  overflow: hidden;
+  align-items: stretch;
+  min-height: 26px;
+  color: #fff;
+  background: var(--transfer-color, var(--blue-800));
+  border: 1px solid var(--transfer-color, var(--blue-800));
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.station-transfer-chip span {
+  display: grid;
+  place-items: center;
+  min-width: 34px;
+  padding: 0 7px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.station-transfer-chip small {
+  display: grid;
+  place-items: center;
+  padding: 0 7px;
+  color: var(--blue-950);
+  background: #fff;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.station-transfer-chip:hover,
+.station-transfer-chip:focus-visible {
+  filter: brightness(.92);
+  outline: 2px solid rgba(0, 82, 130, .28);
+  outline-offset: 2px;
 }
 
 .station-actions {

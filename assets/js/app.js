@@ -23,6 +23,7 @@
   const statusDialog = qs("#statusDialog");
   const searchDialog = qs("#searchDialog");
   const newsData = window.KEIJO_NEWS_DATA;
+  const stationDirectory = window.KEIJO_STATION_DIRECTORY?.stations || data.stations;
 
   init();
 
@@ -134,8 +135,11 @@
   }
 
   function populateStationControls() {
-    const datalistMarkup = data.stations
-      .map((station) => `<option value="${station.name}">${station.code}・${station.line}</option>`)
+    const datalistMarkup = stationDirectory
+      .map((station) => {
+        const code = station.code ? `${station.code}・` : "";
+        return `<option value="${station.name}">${code}${station.line}</option>`;
+      })
       .join("");
     stationList.innerHTML = datalistMarkup;
 
@@ -265,11 +269,7 @@
       return;
     }
 
-    const match = data.stations.find(
-      (station) =>
-        station.name.toLowerCase().includes(keyword) ||
-        station.code.toLowerCase() === keyword
-    );
+    const match = findStation(keyword);
 
     if (!match) {
       alert("未找到符合條件的車站。請確認站名或車站編號後再查詢。");
@@ -279,6 +279,16 @@
     alert(
       `${match.name}（${match.code}）\n可轉乘路線：${match.line}\n\n詳細出口、設施與無障礙資訊將於車站頁面陸續公開。`
     );
+  }
+
+  function findStation(keyword) {
+    return stationDirectory.find((station) => {
+      const aliases = station.aliases || [];
+      const transfers = station.transfers || [];
+      const terms = [station.name, station.code, ...aliases, ...transfers].filter(Boolean);
+
+      return terms.some((term) => term.toLowerCase().includes(keyword));
+    });
   }
 
   function handleSiteSearch(event) {

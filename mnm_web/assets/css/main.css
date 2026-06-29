@@ -196,6 +196,10 @@ img {
   box-shadow: inset 0 -5px 0 var(--yellow);
 }
 
+.mobile-nav-toggle {
+  display: none;
+}
+
 .hero-shell {
   padding: 34px 0 42px;
   background:
@@ -1430,18 +1434,97 @@ body {
   }
 
   .top-strip-inner {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 6px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    min-height: 32px;
+    gap: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .top-strip nav {
+    display: none;
   }
 
   .brand-inner {
-    min-height: 86px;
-    gap: 16px;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .brand img {
+    width: min(275px, 100%);
+  }
+
+  .mobile-nav-toggle {
+    min-width: 84px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 12px;
+    color: var(--blue-950);
+    background: #fff;
+    border: 1px solid #b8c8da;
+    border-radius: var(--radius-sm);
+    font-weight: 900;
+  }
+
+  .mobile-nav-toggle:hover,
+  .mobile-nav-toggle:focus-visible,
+  .mobile-nav-toggle.is-open {
+    color: #fff;
+    background: var(--blue-900);
+    border-color: var(--blue-900);
+  }
+
+  .mobile-nav-icon,
+  .mobile-nav-icon::before,
+  .mobile-nav-icon::after {
+    width: 18px;
+    height: 2px;
+    display: block;
+    background: currentColor;
+    content: "";
+  }
+
+  .mobile-nav-icon {
+    position: relative;
+  }
+
+  .mobile-nav-icon::before,
+  .mobile-nav-icon::after {
+    position: absolute;
+    left: 0;
+    transition: transform .16s ease, top .16s ease;
+  }
+
+  .mobile-nav-icon::before {
+    top: -6px;
+  }
+
+  .mobile-nav-icon::after {
+    top: 6px;
+  }
+
+  .mobile-nav-toggle.is-open .mobile-nav-icon {
+    background: transparent;
+  }
+
+  .mobile-nav-toggle.is-open .mobile-nav-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .mobile-nav-toggle.is-open .mobile-nav-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  .site-search {
+    max-width: none;
+    grid-column: 1 / -1;
   }
 
   .site-search div {
@@ -1449,15 +1532,28 @@ body {
   }
 
   .main-nav-inner,
-  .quick-grid,
   .info-grid,
   .route-button-grid {
     grid-template-columns: 1fr;
   }
 
+  .has-mobile-nav .main-nav:not(.is-open) {
+    display: none;
+  }
+
+  .main-nav {
+    border-top: 1px solid var(--line);
+  }
+
+  .main-nav-inner {
+    gap: 4px;
+    padding: 8px 0 12px;
+  }
+
   .main-nav a {
-    min-height: 48px;
+    min-height: 44px;
     justify-content: flex-start;
+    padding: 0 16px;
   }
 
   .hero-shell,
@@ -1468,29 +1564,100 @@ body {
   .pdf-preview-section,
   .map-library-section,
   .info-section {
-    padding: 38px 0;
+    padding: 32px 0;
   }
 
   .panel-tabs {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+    padding: 6px;
   }
 
   .panel-tabs button {
+    min-height: 44px;
+    padding: 5px;
     border-right: 0;
-    border-bottom: 1px solid #c5d2df;
+    border-bottom: 0;
+    font-size: 12px;
   }
 
   .planner-body,
   .promo-copy {
-    padding: 24px;
+    padding: 20px;
+  }
+
+  .planner-form {
+    position: relative;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .planner-form input[type="text"] {
+    min-height: 42px;
+  }
+
+  .planner-form fieldset {
+    padding: 10px 12px;
+  }
+
+  .swap {
+    position: absolute;
+    top: 56px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    box-shadow: 0 8px 18px rgba(0, 31, 91, .18);
   }
 
   .planner-body h1 {
-    font-size: 31px;
+    font-size: 28px;
   }
 
   .app-promo h2 {
-    font-size: 38px;
+    font-size: 26px;
+  }
+
+  .hero-shell {
+    padding-top: 18px;
+    padding-bottom: 24px;
+  }
+
+  .hero-grid {
+    gap: 16px;
+  }
+
+  .app-promo {
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .app-promo p:not(.eyebrow) {
+    margin: 10px 0 16px;
+  }
+
+  .promo-copy {
+    padding: 18px;
+  }
+
+  .store-row a {
+    min-height: 38px;
+    padding: 0 14px;
+  }
+
+  .quick-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .quick-grid a {
+    min-height: 142px;
+    padding: 18px 14px;
+  }
+
+  .quick-grid span {
+    width: 42px;
+    height: 42px;
   }
 
   .routes-copy h2,
@@ -1508,15 +1675,7 @@ body {
   }
 
   .phone-preview {
-    min-height: 270px;
-  }
-
-  .phone-screen {
-    right: 24px;
-    bottom: -42px;
-    width: 178px;
-    min-height: 315px;
-    border-width: 7px;
+    display: none;
   }
 
   .line-board article {

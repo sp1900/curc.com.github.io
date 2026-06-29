@@ -68,9 +68,9 @@ window.KEIJO_DATA = {
       name: "西北線",
       trunkName: "大西北幹線",
       subtitle: "京城西北新市鎮聯絡線",
-      status: "delay",
-      statusLabel: "部分延誤",
-      message: "因新會路站有乘客需要救護服務，部分列車約延誤 5 分鐘。",
+      status: "normal",
+      statusLabel: "正常運行",
+      message: "全線列車依照時刻表正常運行。",
       color: "#EF7A1F"
     },
     {

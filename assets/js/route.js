@@ -7,6 +7,7 @@
   const stationSearchInput = document.querySelector("#routeStationSearchInput");
   const stationList = document.querySelector("#routeStationList");
   const stationResult = document.querySelector("#routeStationSearchResult");
+  const stationDirectory = window.KEIJO_STATION_DIRECTORY?.stations || data?.stations || [];
   const linePageMap = {
     "line-4": "jonggwan.html",
     "line-5": "congling.html",
@@ -44,8 +45,11 @@
   window.addEventListener("keijo:operation-status-change", renderLineDirectory);
 
   if (stationList) {
-    stationList.innerHTML = data.stations
-      .map((station) => `<option value="${station.name}">${station.code}・${station.line}</option>`)
+    stationList.innerHTML = stationDirectory
+      .map((station) => {
+        const code = station.code ? `${station.code}・` : "";
+        return `<option value="${station.name}">${code}${station.line}</option>`;
+      })
       .join("");
   }
 
@@ -71,11 +75,7 @@
       return;
     }
 
-    const match = data.stations.find(
-      (station) =>
-        station.name.toLowerCase().includes(keyword) ||
-        station.code.toLowerCase() === keyword
-    );
+    const match = findStation(keyword);
 
     if (!match) {
       stationResult.innerHTML = "<p>未找到符合條件的車站。請確認站名或車站編號後再查詢。</p>";
@@ -92,5 +92,15 @@
         </div>
       </article>
     `;
+  }
+
+  function findStation(keyword) {
+    return stationDirectory.find((station) => {
+      const aliases = station.aliases || [];
+      const transfers = station.transfers || [];
+      const terms = [station.name, station.code, ...aliases, ...transfers].filter(Boolean);
+
+      return terms.some((term) => term.toLowerCase().includes(keyword));
+    });
   }
 })();
